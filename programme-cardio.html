@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme Cardio-Training | YC Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching">
+            </a>
+            <nav class="nav-desktop">
+                <ul class="nav-menu">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link">
+                            Coaching
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="coaching-domicile.html" class="dropdown-item"><span class="dropdown-icon">🏠</span><div><strong>Coaching à domicile</strong><span>Le sport vient à vous</span></div></a>
+                            <a href="coaching-salle.html" class="dropdown-item"><span class="dropdown-icon">🏋️</span><div><strong>Coaching en salle</strong><span>Équipements professionnels</span></div></a>
+                            <a href="coaching-distance.html" class="dropdown-item"><span class="dropdown-icon">💻</span><div><strong>Coaching à distance</strong><span>Où que vous soyez</span></div></a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="programmes-yc.html" class="nav-link active">Programmes YC</a></li>
+                    <li class="nav-item"><a href="conseils-yc.html" class="nav-link">Les conseils YC Coaching</a></li>
+                    <li class="nav-item"><a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous ?</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="contact.html" class="btn-header">Réserver<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="coaching-domicile.html" class="mobile-nav-link">Coaching à domicile</a>
+                <a href="coaching-salle.html" class="mobile-nav-link">Coaching en salle</a>
+                <a href="coaching-distance.html" class="mobile-nav-link">Coaching à distance</a>
+                <a href="programmes-yc.html" class="mobile-nav-link active">Programmes YC</a>
+                <a href="conseils-yc.html" class="mobile-nav-link">Les conseils YC Coaching</a>
+                <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous ?</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Produit -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="product-hero-grid">
+                <div class="product-hero-content">
+                    <a href="programmes-yc.html" class="product-back-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Retour aux programmes
+                    </a>
+                    <span class="product-badge">Nouveau</span>
+                    <h1 class="product-title">Programme<br><span>Cardio-Training</span></h1>
+                    <p class="product-description">
+                        Un programme de 6 semaines pour améliorer votre endurance et brûler des calories efficacement.
+                        Alternant HIIT et cardio modéré, ce programme est réalisable sans matériel, où que vous soyez.
+                    </p>
+                    <div class="product-features-quick">
+                        <div class="feature-quick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>6 semaines</span></div>
+                        <div class="feature-quick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span>Accès à vie</span></div>
+                        <div class="feature-quick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg><span>Sans matériel</span></div>
+                    </div>
+                    <div class="product-price-box">
+                        <div class="product-price">
+                            <span class="price-amount">69,90€</span>
+                            <span class="price-info">Paiement unique</span>
+                        </div>
+                        <button class="btn-buy" id="buyButton">Acheter maintenant<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg></button>
+                    </div>
+                    <p class="product-guarantee"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Satisfait ou remboursé sous 14 jours</p>
+                </div>
+                <div class="product-hero-image">
+                    <img src="images/programme-cardio-training.png" alt="Programme Cardio-Training">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ce qui est inclus -->
+    <section class="product-includes">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-tag">Contenu du programme</span>
+                <h2 class="section-title">Ce qui est<br><span>inclus</span></h2>
+            </div>
+            <div class="includes-grid">
+                <div class="include-card">
+                    <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg></div>
+                    <h3>Programme complet 6 semaines</h3>
+                    <p>Séances structurées avec progression adaptée, alternant HIIT intense et cardio modéré pour des résultats optimaux.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></div>
+                    <h3>Vidéos de démonstration</h3>
+                    <p>Chaque exercice est expliqué en vidéo avec les variantes et adaptations possibles selon votre niveau.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                    <h3>Séances HIIT</h3>
+                    <p>Des séances courtes et intenses pour maximiser la dépense calorique et améliorer votre condition physique.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+                    <h3>Cardio modéré</h3>
+                    <p>Des séances de cardio à intensité modérée pour améliorer votre endurance de base et faciliter la récupération.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+                    <h3>Calendrier de séances</h3>
+                    <p>Planning semaine par semaine pour savoir exactement quoi faire chaque jour.</p>
+                </div>
+                <div class="include-card">
+                    <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+                    <h3>Support par email</h3>
+                    <p>Une question ? Notre équipe vous répond par email dans les 48h.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pour qui -->
+    <section class="product-for-who">
+        <div class="container">
+            <div class="for-who-header">
+                <span class="section-tag">Pour qui ?</span>
+                <h2 class="section-title">Ce programme est<br><span>fait pour vous si...</span></h2>
+            </div>
+
+            <div class="for-who-grid">
+                <div class="for-who-item">
+                    <div class="for-who-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <p>Vous souhaitez améliorer votre endurance et votre souffle</p>
+                </div>
+                <div class="for-who-item">
+                    <div class="for-who-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <p>Vous voulez brûler des calories efficacement</p>
+                </div>
+                <div class="for-who-item">
+                    <div class="for-who-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <p>Vous n'avez pas accès à une salle de sport ou à du matériel</p>
+                </div>
+                <div class="for-who-item">
+                    <div class="for-who-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <p>Vous avez peu de temps pour vous entraîner (20-30 min/séance)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="product-faq">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Questions<br><span>fréquentes</span></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question"><span>Ai-je besoin de matériel pour ce programme ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></button>
+                    <div class="faq-answer"><p>Non, ce programme est entièrement réalisable sans matériel. Vous aurez juste besoin d'un espace suffisant pour bouger et d'une bonne paire de chaussures de sport.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span>Combien de temps durent les séances ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></button>
+                    <div class="faq-answer"><p>Les séances durent entre 20 et 35 minutes selon le type (HIIT ou cardio modéré). C'est un format idéal pour ceux qui ont un emploi du temps chargé.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span>Ce programme convient-il aux débutants ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></button>
+                    <div class="faq-answer"><p>Oui ! Le programme propose des variantes pour chaque exercice afin de s'adapter à tous les niveaux, du débutant à l'intermédiaire.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span>Puis-je être remboursé si le programme ne me convient pas ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></button>
+                    <div class="faq-answer"><p>Oui, vous bénéficiez d'une garantie satisfait ou remboursé de 14 jours. Si le programme ne vous convient pas, contactez-nous et nous vous rembourserons intégralement.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="product-cta-final">
+        <div class="container">
+            <div class="cta-final-content">
+                <h2>Prêt à booster votre cardio ?</h2>
+                <p>Rejoignez les centaines de personnes qui ont amélioré leur condition physique avec nos programmes.</p>
+                <div class="cta-final-price"><span class="price-amount">69,90€</span><span class="price-info">Accès à vie</span></div>
+                <button class="btn-buy-large" id="buyButtonBottom">Acheter le programme<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching" class="footer-logo">
+                    <p class="footer-description">Coaching Sportif Premium à Albi. Coaching personnalisé à domicile, en salle ou à distance pour atteindre vos objectifs.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/coaching_yc/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links"><h4>Navigation</h4><ul><li><a href="coaching-domicile.html">Coaching à domicile</a></li><li><a href="coaching-salle.html">Coaching en salle</a></li><li><a href="coaching-distance.html">Coaching à distance</a></li><li><a href="programmes-yc.html">Programmes YC</a></li></ul></div>
+                <div class="footer-links"><h4>Informations</h4><ul><li><a href="qui-sommes-nous.html">À propos</a></li><li><a href="index.html#transformations">Résultats</a></li><li><a href="conseils-yc.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer-contact"><h4>Contact</h4><p>Albi, Tarn (81)</p><p>Lun - Sam : 8h - 20h</p><p>contact@coaching-yc.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 YC Coaching. Tous droits réservés. Réalisé par <a href="https://be-agency.fr" target="_blank" class="footer-credit"><img src="images/blg-logo-sans-fond.png" alt="B.E Agency" class="footer-credit-logo"></a></p><div class="footer-legal"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a><a href="#">CGV</a></div></div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="pages.js"></script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                button.parentElement.classList.toggle('active');
+            });
+        });
+        document.querySelectorAll('#buyButton, #buyButtonBottom').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Intégration Stripe à venir. Contactez-nous pour acheter ce programme.');
+            });
+        });
+    </script>
+</body>
+</html>

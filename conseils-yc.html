@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Conseils YC Coaching - Blog Fitness & Nutrition | YC Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching">
+            </a>
+
+            <nav class="nav-desktop">
+                <ul class="nav-menu">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link">
+                            Coachings sportifs
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="coaching-domicile.html" class="dropdown-item">
+                                <span class="dropdown-icon">🏠</span>
+                                <div>
+                                    <strong>Coaching à domicile</strong>
+                                    <span>Le sport vient à vous</span>
+                                </div>
+                            </a>
+                            <a href="coaching-salle.html" class="dropdown-item">
+                                <span class="dropdown-icon">🏋️</span>
+                                <div>
+                                    <strong>Coaching en salle</strong>
+                                    <span>Équipements professionnels</span>
+                                </div>
+                            </a>
+                            <a href="coaching-distance.html" class="dropdown-item">
+                                <span class="dropdown-icon">💻</span>
+                                <div>
+                                    <strong>Coaching à distance</strong>
+                                    <span>Où que vous soyez</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="programmes-yc.html" class="nav-link">Programmes YC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="conseils-yc.html" class="nav-link active">Les conseils YC Coaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#about" class="nav-link">Qui sommes-nous ?</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn-header">
+                    Réserver
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="coaching-domicile.html" class="mobile-nav-link">Coaching à domicile</a>
+                <a href="coaching-salle.html" class="mobile-nav-link">Coaching en salle</a>
+                <a href="coaching-distance.html" class="mobile-nav-link">Coaching à distance</a>
+                <a href="programmes-yc.html" class="mobile-nav-link">Programmes YC</a>
+                <a href="conseils-yc.html" class="mobile-nav-link active">Les conseils YC Coaching</a>
+                <a href="index.html#about" class="mobile-nav-link">Qui sommes-nous ?</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Page -->
+    <section class="page-hero page-hero-small">
+        <div class="page-hero-background">
+            <img src="images/accueil.png" alt="Les Conseils YC Coaching">
+        </div>
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-hero-badge">
+                    <span class="badge-icon">📚</span>
+                    Blog
+                </div>
+                <h1 class="page-hero-title">
+                    Les conseils<br><span>YC Coaching</span>
+                </h1>
+                <p class="page-hero-subtitle">Conseils, astuces et actualités pour atteindre vos objectifs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Filter -->
+    <section class="blog-filter-section">
+        <div class="container">
+            <div class="blog-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="nutrition">Nutrition</button>
+                <button class="filter-btn" data-filter="entrainement">Entraînement</button>
+                <button class="filter-btn" data-filter="motivation">Motivation</button>
+                <button class="filter-btn" data-filter="sante">Santé</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Articles -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Article 1 - Featured -->
+                <article class="blog-card featured" data-category="nutrition">
+                    <a href="#" class="blog-card-link">
+                        <div class="blog-card-image">
+                            <img src="images/YC06-scaled.jpg" alt="Les bases de la nutrition sportive">
+                            <span class="blog-category">Nutrition</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">15 Jan 2025</span>
+                                <span class="blog-read-time">8 min de lecture</span>
+                            </div>
+                            <h2 class="blog-title">Les bases de la nutrition sportive : guide complet pour optimiser vos performances</h2>
+                            <p class="blog-excerpt">Découvrez les principes fondamentaux de la nutrition sportive : macronutriments, timing des repas, hydratation et suppléments. Un guide essentiel pour maximiser vos résultats.</p>
+                            <span class="blog-read-more">
+                                Lire l'article
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card" data-category="entrainement">
+                    <a href="#" class="blog-card-link">
+                        <div class="blog-card-image">
+                            <img src="images/YC06-scaled.jpg" alt="5 exercices pour renforcer votre dos">
+                            <span class="blog-category">Entraînement</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">10 Jan 2025</span>
+                                <span class="blog-read-time">5 min de lecture</span>
+                            </div>
+                            <h3 class="blog-title">5 exercices essentiels pour renforcer votre dos</h3>
+                            <p class="blog-excerpt">Un dos fort est la clé d'une bonne posture et de performances optimales. Voici les exercices incontournables.</p>
+                            <span class="blog-read-more">
+                                Lire l'article
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card" data-category="motivation">
+                    <a href="#" class="blog-card-link">
+                        <div class="blog-card-image">
+                            <img src="images/YC06-scaled.jpg" alt="Comment rester motivé">
+                            <span class="blog-category">Motivation</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">5 Jan 2025</span>
+                                <span class="blog-read-time">6 min de lecture</span>
+                            </div>
+                            <h3 class="blog-title">Comment rester motivé quand les résultats tardent ?</h3>
+                            <p class="blog-excerpt">La motivation fluctue, c'est normal. Découvrez mes conseils pour maintenir le cap même dans les moments difficiles.</p>
+                            <span class="blog-read-more">
+                                Lire l'article
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blog-card" data-category="nutrition">
+                    <a href="#" class="blog-card-link">
+                        <div class="blog-card-image">
+                            <img src="images/YC06-scaled.jpg" alt="Petit-déjeuner sportif">
+                            <span class="blog-category">Nutrition</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">28 Déc 2024</span>
+                                <span class="blog-read-time">4 min de lecture</span>
+                            </div>
+                            <h3 class="blog-title">Le petit-déjeuner idéal avant l'entraînement</h3>
+                            <p class="blog-excerpt">Que manger avant une séance de sport ? Découvrez les meilleures options selon vos objectifs et le timing.</p>
+                            <span class="blog-read-more">
+                                Lire l'article
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blog-card" data-category="sante">
+                    <a href="#" class="blog-card-link">
+                        <div class="blog-card-image">
+                            <img src="images/YC06-scaled.jpg" alt="Importance du sommeil">
+                            <span class="blog-category">Santé</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">20 Déc 2024</span>
+                                <span class="blog-read-time">7 min de lecture</span>
+                            </div>
+                            <h3 class="blog-title">Le sommeil : votre allié secret pour progresser</h3>
+                            <p class="blog-excerpt">Le sommeil est souvent négligé, pourtant c'est pendant la nuit que votre corps se régénère et se renforce.</p>
+                            <span class="blog-read-more">
+                                Lire l'article
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blog-card" data-category="entrainement">
+                    <a href="#" class="blog-card-link">
+                        <div class="blog-card-image">
+                            <img src="images/YC06-scaled.jpg" alt="HIIT vs Cardio">
+                            <span class="blog-category">Entraînement</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">15 Déc 2024</span>
+                                <span class="blog-read-time">6 min de lecture</span>
+                            </div>
+                            <h3 class="blog-title">HIIT vs Cardio classique : que choisir pour perdre du gras ?</h3>
+                            <p class="blog-excerpt">Comparatif complet entre ces deux méthodes d'entraînement pour vous aider à faire le bon choix.</p>
+                            <span class="blog-read-more">
+                                Lire l'article
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 7 -->
+                <article class="blog-card" data-category="nutrition">
+                    <a href="#" class="blog-card-link">
+                        <div class="blog-card-image">
+                            <img src="images/YC06-scaled.jpg" alt="Protéines végétales">
+                            <span class="blog-category">Nutrition</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">10 Déc 2024</span>
+                                <span class="blog-read-time">5 min de lecture</span>
+                            </div>
+                            <h3 class="blog-title">Protéines végétales : sont-elles suffisantes pour la musculation ?</h3>
+                            <p class="blog-excerpt">Analyse complète des protéines végétales et comment les combiner pour optimiser vos apports.</p>
+                            <span class="blog-read-more">
+                                Lire l'article
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 8 -->
+                <article class="blog-card" data-category="sante">
+                    <a href="#" class="blog-card-link">
+                        <div class="blog-card-image">
+                            <img src="images/YC06-scaled.jpg" alt="Éviter les blessures">
+                            <span class="blog-category">Santé</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">5 Déc 2024</span>
+                                <span class="blog-read-time">8 min de lecture</span>
+                            </div>
+                            <h3 class="blog-title">Les 7 erreurs qui mènent à la blessure (et comment les éviter)</h3>
+                            <p class="blog-excerpt">Prévenir vaut mieux que guérir. Identifiez les comportements à risque pour vous entraîner en toute sécurité.</p>
+                            <span class="blog-read-more">
+                                Lire l'article
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Article 9 -->
+                <article class="blog-card" data-category="motivation">
+                    <a href="#" class="blog-card-link">
+                        <div class="blog-card-image">
+                            <img src="images/YC06-scaled.jpg" alt="Objectifs SMART">
+                            <span class="blog-category">Motivation</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">1 Déc 2024</span>
+                                <span class="blog-read-time">5 min de lecture</span>
+                            </div>
+                            <h3 class="blog-title">Comment définir des objectifs sportifs que vous atteindrez vraiment</h3>
+                            <p class="blog-excerpt">La méthode SMART appliquée au fitness : définissez des objectifs clairs et atteignables.</p>
+                            <span class="blog-read-more">
+                                Lire l'article
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </article>
+            </div>
+
+            <!-- Load More -->
+            <div class="blog-load-more">
+                <button class="btn-load-more">
+                    Charger plus d'articles
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-info">
+                    <h2 class="newsletter-title">Restez informé</h2>
+                    <p class="newsletter-text">Recevez nos derniers conseils, astuces et actualités directement dans votre boîte mail.</p>
+                </div>
+                <form class="newsletter-form">
+                    <div class="newsletter-input-wrapper">
+                        <input type="email" placeholder="Votre adresse email" required>
+                        <button type="submit">
+                            S'inscrire
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="newsletter-note">Pas de spam, uniquement du contenu de qualité. Désinscription en un clic.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching" class="footer-logo">
+                    <p class="footer-description">
+                        Coaching Sportif Premium à Albi
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/coaching_yc/" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="footer-address">Albi</p>
+                    <p class="footer-hours">Lun - Sam 8h - 20h</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="coaching-domicile.html">Coaching à domicile</a></li>
+                        <li><a href="coaching-salle.html">Coaching en salle</a></li>
+                        <li><a href="coaching-distance.html">Coaching à distance</a></li>
+                        <li><a href="programmes-yc.html">Programmes YC</a></li>
+                        <li><a href="conseils-yc.html">Les conseils YC Coaching</a></li>
+                        <li><a href="qui-sommes-nous.html">Qui sommes-nous ?</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Catégories</h4>
+                    <ul>
+                        <li><a href="#">Nutrition</a></li>
+                        <li><a href="#">Entraînement</a></li>
+                        <li><a href="#">Motivation</a></li>
+                        <li><a href="#">Santé</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 YC Coaching. Tous droits réservés. Réalisé par <a href="https://be-agency.fr" target="_blank" class="footer-credit"><img src="images/blg-logo-sans-fond.png" alt="B.E Agency" class="footer-credit-logo"></a></p>
+                <div class="footer-social-bottom">
+                    <a href="https://www.instagram.com/coaching_yc/" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="pages.js"></script>
+</body>
+</html>

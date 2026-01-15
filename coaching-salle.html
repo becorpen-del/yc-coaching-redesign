@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Sportif en Salle à Albi | YC Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching">
+            </a>
+
+            <nav class="nav-desktop">
+                <ul class="nav-menu">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link active">
+                            Coachings sportifs
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="coaching-domicile.html" class="dropdown-item">
+                                <span class="dropdown-icon">🏠</span>
+                                <div>
+                                    <strong>Coaching à domicile</strong>
+                                    <span>Le sport vient à vous</span>
+                                </div>
+                            </a>
+                            <a href="coaching-salle.html" class="dropdown-item active">
+                                <span class="dropdown-icon">🏋️</span>
+                                <div>
+                                    <strong>Coaching en salle</strong>
+                                    <span>Équipements professionnels</span>
+                                </div>
+                            </a>
+                            <a href="coaching-distance.html" class="dropdown-item">
+                                <span class="dropdown-icon">💻</span>
+                                <div>
+                                    <strong>Coaching à distance</strong>
+                                    <span>Où que vous soyez</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#programmes" class="nav-link">Programmes YC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Les conseils YC Coaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous ?</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn-header">
+                    Réserver
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="coaching-domicile.html" class="mobile-nav-link">Coaching à domicile</a>
+                <a href="coaching-salle.html" class="mobile-nav-link active">Coaching en salle</a>
+                <a href="coaching-distance.html" class="mobile-nav-link">Coaching à distance</a>
+                <a href="index.html#programmes" class="mobile-nav-link">Programmes YC</a>
+                <a href="#" class="mobile-nav-link">Les conseils YC Coaching</a>
+                <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous ?</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Page -->
+    <section class="page-hero">
+        <div class="page-hero-background">
+            <img src="images/banniere-coaching-en-salle.png" alt="Coaching en salle">
+        </div>
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-hero-badge">
+                    <span class="badge-icon">🏋️</span>
+                    Service Premium
+                </div>
+                <h1 class="page-hero-title">
+                    Coaching<br><span>en salle</span>
+                </h1>
+                <p class="page-hero-subtitle">À remplir</p>
+                <div class="page-hero-cta">
+                    <a href="#contact" class="cta-button primary">
+                        Commençons l'aventure
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="#avantages" class="cta-button secondary">Découvrir</a>
+                </div>
+            </div>
+        </div>
+        <div class="page-hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Tagline Section -->
+    <section class="tagline-section">
+        <div class="container">
+            <div class="tagline-content">
+                <div class="tagline-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                    </svg>
+                </div>
+                <h2 class="tagline-text">Débutons ensemble votre aventure</h2>
+                <p class="tagline-description">Nous souhaitons écrire les futures pages de votre histoire ! Prêts à bouleverser votre vie ? YC Coaching vous accompagne de façon personnalisée dans la réalisation de vos ambitions sportives et de bien-être.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 01 - Pourquoi choisir le coaching en salle -->
+    <section class="content-section" id="pourquoi">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-video">
+                    <div class="video-wrapper-9-16">
+                        <video controls playsinline>
+                            <source src="videos/video-coaching-en-salle.mov" type="video/quicktime">
+                            <source src="videos/video-coaching-en-salle.mov" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture de vidéos.
+                        </video>
+                    </div>
+                </div>
+
+                <div class="content-info">
+                    <div class="section-number">01</div>
+                    <span class="section-tag">Pourquoi choisir</span>
+                    <h2 class="section-title">Pourquoi choisir le<br><span>coaching en salle ?</span></h2>
+
+                    <p class="content-text">Le coaching sportif en salle combine les avantages d'un suivi personnalisé avec l'accès à un équipement professionnel complet.</p>
+
+                    <p class="content-text">Contrairement à l'entraînement en autonomie, vous bénéficiez d'une supervision technique, d'une méthode éprouvée et d'une programmation cohérente de vos séances.</p>
+
+                    <p class="content-text">Dans une salle de sport à Albi, vous disposez de machines de musculation, poids libres, équipements cardio et espaces fonctionnels qui permettent une infinité d'exercices pour travailler tous les groupes musculaires.</p>
+
+                    <a href="#contact" class="btn-secondary">
+                        Contactez-moi
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 02 - Mon approche -->
+    <section class="content-section alternate" id="approche">
+        <div class="container">
+            <div class="content-grid reverse">
+                <div class="content-info">
+                    <div class="section-number">02</div>
+                    <span class="section-tag">Mon approche</span>
+                    <h2 class="section-title">Mon approche du<br><span>coaching en salle à Albi</span></h2>
+
+                    <p class="content-text">En tant que coach sportif à Albi, je propose des séances de coaching en salle personnalisées, où chaque exercice est calibré sur votre profil et vos objectifs.</p>
+
+                    <p class="content-text">Chaque programme d'entraînement est conçu après un bilan complet de votre condition physique, vos antécédents sportifs et vos disponibilités.</p>
+
+                    <p class="content-text">Que vous soyez débutant ou sportif confirmé, l'intensité et la complexité des exercices évolueront à votre rythme.</p>
+                </div>
+
+                <div class="content-image">
+                    <div class="image-wrapper">
+                        <img src="images/coahcing-salle.png" alt="Coaching en salle Albi">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03 - Pour qui est fait le coaching -->
+    <section class="content-section for-who-section" id="pour-qui">
+        <div class="container">
+            <div class="section-header-center">
+                <div class="section-number">03</div>
+                <span class="section-tag">Pour qui ?</span>
+                <h2 class="section-title">Pour qui est fait<br><span>le coaching en salle ?</span></h2>
+            </div>
+
+            <div class="for-who-grid">
+                <!-- Item 1 -->
+                <div class="for-who-item">
+                    <h4 class="for-who-title"># Débutants en salle de sport</h4>
+                    <p class="for-who-text">Apprenez les bases d'une bonne exécution, je vous enseigne les mouvements fondamentaux et l'utilisation des équipements en toute sécurité</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="for-who-item">
+                    <h4 class="for-who-title"># Perte de poids & affinement</h4>
+                    <p class="for-who-text">Séance combinant cardio et renforcement pour accélérer votre métabolisme et sculpter votre silhouette</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="for-who-item">
+                    <h4 class="for-who-title"># Renforcement et développement musculaire</h4>
+                    <p class="for-who-text">Séances de musculation structurées avec progression de charge pour maximiser votre prise de muscle</p>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="for-who-item">
+                    <h4 class="for-who-title"># Préparation physique</h4>
+                    <p class="for-who-text">Travail de force, puissance et endurance spécifique aux équipements professionnels adaptés à votre pratique sportive</p>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <a href="#contact" class="cta-button primary">
+                    Passer à l'action
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04 - Transformations -->
+    <section class="transformations-section dark" id="transformations">
+        <div class="container">
+            <div class="section-header-inline">
+                <div>
+                    <span class="section-tag light">Résultats</span>
+                    <h2 class="section-title white">Les transformations<br><span>YC Coaching</span></h2>
+                </div>
+                <p class="section-text">Des résultats concrets obtenus par nos clients grâce au coaching en salle.</p>
+            </div>
+
+            <div class="transformations-slider">
+                <div class="transformations-track" id="transformationsTrack">
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-1.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-10.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-11.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-12.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-13.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-14.jpeg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-15.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-16.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-2.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-3.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-4.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-5.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-6.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-7.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-8.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-9.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transformations-nav">
+                    <button class="trans-nav-btn prev" aria-label="Précédent">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button class="trans-nav-btn next" aria-label="Suivant">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="faq-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Une question sur le coaching<br><span>en salle à Albi ?</span></h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-list">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Quelle est la différence entre un coaching en salle et un abonnement en salle classique ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>À remplir</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Combien de séances par semaine faut-il prévoir ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>À remplir</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Dois-je déjà avoir un abonnement en salle ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>À remplir</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-list">
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Le coaching en salle convient-il aux débutants ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>À remplir</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Quelle tenue prévoir pour les séances ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>À remplir</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Puis-je combiner coaching en salle et à domicile ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>À remplir</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact / CTA -->
+    <section class="contact-page-section" id="contact">
+        <div class="container">
+            <div class="contact-page-grid">
+                <div class="contact-page-info">
+                    <span class="section-tag light">Prêt à commencer ?</span>
+                    <h2 class="contact-page-title">Qu'attendez-vous pour passer<br><span>à l'action ?</span></h2>
+                    <p class="contact-page-text">
+                        Prenez contact dès maintenant avec l'équipe de YC Coaching.
+                    </p>
+
+                    <div class="contact-page-badge">
+                        <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching" class="badge-logo">
+                        <div class="badge-info">
+                            <strong>Coaching Sportif Premium à Albi</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojjvpdr" method="POST">
+                        <input type="hidden" name="page_source" value="Page Coaching en salle">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prenom">Prénom</label>
+                                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required minlength="3">
+                            </div>
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required minlength="3">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telephone">Téléphone</label>
+                                <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="demande">Votre demande</label>
+                            <select id="demande" name="demande" required>
+                                <option value="">Sélectionnez...</option>
+                                <option value="salle" selected>Coaching en salle</option>
+                                <option value="domicile">Coaching à domicile</option>
+                                <option value="distance">Coaching à distance</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Décrivez-nous vos objectifs, vos disponibilités..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Envoyer
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching" class="footer-logo">
+                    <p class="footer-description">
+                        Coaching Sportif Premium à Albi
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/coaching_yc/" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="footer-address">Albi</p>
+                    <p class="footer-hours">Lun - Sam 8h - 20h</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="coaching-domicile.html">Coaching à domicile</a></li>
+                        <li><a href="coaching-salle.html">Coaching en salle</a></li>
+                        <li><a href="coaching-distance.html">Coaching à distance</a></li>
+                        <li><a href="programmes-yc.html">Programmes YC</a></li>
+                        <li><a href="conseils-yc.html">Les conseils YC Coaching</a></li>
+                        <li><a href="qui-sommes-nous.html">Qui sommes-nous ?</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 YC Coaching. Tous droits réservés. Réalisé par <a href="https://be-agency.fr" target="_blank" class="footer-credit"><img src="images/blg-logo-sans-fond.png" alt="B.E Agency" class="footer-credit-logo"></a></p>
+                <div class="footer-social-bottom">
+                    <a href="https://www.instagram.com/coaching_yc/" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="pages.js"></script>
+</body>
+</html>

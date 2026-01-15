@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Sportif à Distance | YC Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching">
+            </a>
+
+            <nav class="nav-desktop">
+                <ul class="nav-menu">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link active">
+                            Coachings sportifs
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="coaching-domicile.html" class="dropdown-item">
+                                <span class="dropdown-icon">🏠</span>
+                                <div>
+                                    <strong>Coaching à domicile</strong>
+                                    <span>Le sport vient à vous</span>
+                                </div>
+                            </a>
+                            <a href="coaching-salle.html" class="dropdown-item">
+                                <span class="dropdown-icon">🏋️</span>
+                                <div>
+                                    <strong>Coaching en salle</strong>
+                                    <span>Équipements professionnels</span>
+                                </div>
+                            </a>
+                            <a href="coaching-distance.html" class="dropdown-item active">
+                                <span class="dropdown-icon">💻</span>
+                                <div>
+                                    <strong>Coaching à distance</strong>
+                                    <span>Où que vous soyez</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#programmes" class="nav-link">Programmes YC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Les conseils YC Coaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous ?</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn-header">
+                    Réserver
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="coaching-domicile.html" class="mobile-nav-link">Coaching à domicile</a>
+                <a href="coaching-salle.html" class="mobile-nav-link">Coaching en salle</a>
+                <a href="coaching-distance.html" class="mobile-nav-link active">Coaching à distance</a>
+                <a href="index.html#programmes" class="mobile-nav-link">Programmes YC</a>
+                <a href="#" class="mobile-nav-link">Les conseils YC Coaching</a>
+                <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous ?</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Page -->
+    <section class="page-hero">
+        <div class="page-hero-background">
+            <img src="images/banniere-coaching-distance.png" alt="Coaching à distance">
+        </div>
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-hero-badge">
+                    <span class="badge-icon">💻</span>
+                    Coaching à distance
+                </div>
+                <h1 class="page-hero-title">
+                    Coaching<br><span>à distance</span>
+                </h1>
+                <p class="page-hero-subtitle">À remplir</p>
+                <div class="page-hero-cta">
+                    <a href="#contact" class="cta-button primary">
+                        Réserver un appel de découverte
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="#avantages" class="cta-button secondary">Découvrir</a>
+                </div>
+            </div>
+        </div>
+        <div class="page-hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Tagline Section -->
+    <section class="tagline-section">
+        <div class="container">
+            <div class="tagline-content">
+                <div class="tagline-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                    </svg>
+                </div>
+                <h2 class="tagline-text">Passer au niveau supérieur sur vos entraînements</h2>
+                <p class="tagline-description">Plus besoin de définir où vous entraîner, plus d'excuses possibles !</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 01 - Le coaching à distance qu'est-ce que c'est -->
+    <section class="content-section" id="definition">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-image">
+                    <div class="image-wrapper">
+                        <img src="images/1-coaching-distance.jpg" alt="Coach sportif à distance">
+                    </div>
+                </div>
+
+                <div class="content-info">
+                    <div class="section-number">01</div>
+                    <span class="section-tag">Définition</span>
+                    <h2 class="section-title">Le coaching à distance<br><span>qu'est-ce que c'est ?</span></h2>
+
+                    <p class="content-text">Que vous soyez un habitué de la musculation qui souhaitez chercher à vous libérer de vos chaînes, ou un débutant soucieux de bien faire dès le départ, notre formule coaching à distance est faite pour vous. Vous bénéficiez d'un accompagnement sur-mesure, incluant un suivi nutritionnel adapté à vos objectifs, pour progresser efficacement et sereinement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 02 - Ce qui vous attend -->
+    <section class="features-section" id="avantages">
+        <div class="container">
+            <div class="section-header-center">
+                <div class="section-number">02</div>
+                <span class="section-tag">Ce qui vous attend</span>
+                <h2 class="section-title">Comprenez ce qui vous attend<br><span>avec les programmes YC</span></h2>
+            </div>
+
+            <div class="features-grid-5">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Séances personnalisées</h4>
+                    <p class="feature-text">Chaque séance est décidée sur l'athlète, envoyée d'avance et accessible depuis l'application</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Plan nutritionnel</h4>
+                    <p class="feature-text">Votre plan nutritionnel est structuré suivant vos objectifs</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Entraînements adaptés</h4>
+                    <p class="feature-text">La planification de vos entraînements</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Un suivi 7/7</h4>
+                    <p class="feature-text">Votre coach reste disponible pour des échanges, modifications et prise de vos entraînements</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Parlons-en</h4>
+                    <p class="feature-text">Découvrons ensemble les sport et les entraînements pouvant être adaptés pour vous atteindrez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03 - Vidéo -->
+    <section class="video-section" id="video">
+        <div class="container">
+            <div class="video-header">
+                <span class="section-tag">Présentation</span>
+                <h2 class="section-title">Encore mieux : laissez votre coach<br><span>vous en parler</span></h2>
+            </div>
+
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <img src="images/coaching-distance.png" alt="Vidéo coaching à distance">
+                        <div class="video-overlay">
+                            <button class="play-button" id="playButton" aria-label="Lire la vidéo">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="video-title-overlay">
+                            <span class="video-label">Coaching</span>
+                            <span class="video-title-text">à <em>Distance</em></span>
+                        </div>
+                        <div class="video-duration">0:00 / 1:40</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04 - Transformations -->
+    <section class="transformations-section dark" id="transformations">
+        <div class="container">
+            <div class="section-header-inline">
+                <div>
+                    <div class="section-number">04</div>
+                    <h2 class="section-title white">Les transformations<br><span>YC Coaching</span></h2>
+                </div>
+            </div>
+
+            <div class="transformations-slider">
+                <div class="transformations-track" id="transformationsTrack">
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-1.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-10.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-11.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-12.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-13.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-14.jpeg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-15.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-16.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-2.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-3.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-4.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-5.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-6.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-7.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-8.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                    <div class="transformation-card">
+                        <div class="transformation-image">
+                            <img src="images/avant-apres/avant-apres-9.jpg" alt="Transformation avant/après">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transformations-nav">
+                    <button class="trans-nav-btn prev" aria-label="Précédent">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button class="trans-nav-btn next" aria-label="Suivant">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="faq-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Des questions sur le coaching<br><span>et suivi à distance YC ?</span></h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-list">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Comment fonctionne le coaching sportif à distance ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Le coaching sportif à distance vous permet de bénéficier de la qualité d'expértise de votre coach ainsi que d'un accompagnement personnalisé où que vous soyez. Vous recevez un programme d'entraînement 100% sur-mesure adapté à vos objectifs, votre niveau et votre emploi du temps. Nous échangeons régulièrement par message ou appel pour ajuster votre programme et suivre votre progression. Posez le cerveau, ne réfléchissez plus à quels exercices faire, comment les faire et quand le faire ! Entraînez-vous dans les meilleures conditions où que vous soyez !</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>À qui s'adresse le coaching et suivi à distance ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Le coaching sportif en ligne s'adresse tant bien au débutant qui souhaite un encadrement de A à Z en toute sécurité jusqu'au pratiquant expérimenté qui souhaite passer le niveau supérieur sur le plan physique, que ses performances mais aussi sa nutrition !</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Puis-je obtenir des résultats avec un coaching à distance ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolument ! Le coaching sportif à distance est tout aussi efficace qu'un coaching en présentiel si vous êtes motivé et que vous suivez le programme. Vous bénéficiez d'un programme personnalisé adapté à votre niveau, d'un suivi régulier de votre progression et des conseils YC pour ajuster si nécessaire. Nos coachings en ligne obtiennent d'excellents résultats : perte de poids, prise de muscle, amélioration de la condition physique, développement des capacités liées au sport que vous pratiquez. La clé du succès ? Votre engagement et la régularité, que je vous aide à maintenir grâce à un suivi motivant.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Quel matériel faut-il pour le coaching sportif en ligne ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Si vous êtes en salle, pas de sujet ! Autrement je conçois votre programme en fonction du matériel dont vous disposez. Pour débuter, vous pouvez vous entraîner avec peu de matériel : un tapis de sol et votre poids de corps suffisent pour de nombreux exercices. Si vous avez des haltères, des bandes élastiques, j'adapte les exercices en conséquence. L'avantage du coaching à distance je créé des séances efficaces avec ce que vous avez chez vous, sans investissement coûteux obligatoire.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-list">
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Comment se passe le suivi avec un coach sportif à distance ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Concernant le suivi du coaching à distance : Vous me transmettez vos performances (poids soulevés, répétitions, ressenti), vos vidéos de vos exécutions sur vos différents exercices, comment se déroule la nutrition et je peux ainsi ajuster votre entraînement en temps réel. Nous échangeons par message pour toute question pour vérifier votre technique et votre progression. Vous n'êtes jamais seul : je reste disponible pour vous accompagner et vous motiver tout au long de votre parcours 7J/7.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Le coaching sportif à distance inclut-il un suivi nutritionnel ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Oui, mon accompagnement en coaching à distance inclut des conseils nutritionnels personnalisés pour maximiser vos résultats. Selon vos objectifs (perte de poids, prise de masse, remise en forme, affinement...), je vous fournis un cadre alimentaire adapté au gramme près. Ce n'est pas un régime strict, mais un rééquilibrage alimentaire progressif et tenable sur le long terme. L'entraînement et la nutrition forment un duo indissociable pour atteindre vos objectifs.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 7 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Le coaching en ligne convient-il aux débutants ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Tout à fait ! Le coaching sportif à distance est parfaitement adapté aux débutants. Je conçois votre programme en partant de votre niveau actuel, avec des exercices progressifs et des conseils précis pour chaque mouvement. Vous apprenez les bonnes techniques dès le départ, sans risque de blessure. Je reste disponible pour corriger votre posture via des vidéos que vous m'envoyez.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 8 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Peut-on combiner coaching à distance et séances en présentiel ?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Oui, c'est tout à fait possible de mixer les formules ! Certains de mes coachings optent pour un suivi en ligne et des séances en présentiel ponctuelles pour vérifier leur technique et repousser leurs limites en ma présence. C'est une solution flexible et économique qui combine les avantages des deux approches. Si vous êtes dans la région d'Albi, nous pouvons prévoir des sessions en salle ou à domicile en complément de votre coaching à distance. Contactez-moi pour élaborer une formule hybride adaptée à vos besoins.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <blockquote class="main-quote">
+                <p>« La qualité YC où que vous soyez »</p>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Section Contact / CTA -->
+    <section class="contact-page-section" id="contact">
+        <div class="container">
+            <div class="contact-page-grid">
+                <div class="contact-page-info">
+                    <span class="section-tag light">Prêt à commencer ?</span>
+                    <h2 class="contact-page-title">Qu'attendez-vous pour passer<br><span>à l'action ?</span></h2>
+                    <p class="contact-page-text">
+                        Prenez contact dès maintenant avec l'équipe de YC Coaching.
+                    </p>
+
+                    <div class="contact-page-badge">
+                        <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching" class="badge-logo">
+                        <div class="badge-info">
+                            <strong>Coaching Sportif Premium à Albi</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojjvpdr" method="POST">
+                        <input type="hidden" name="page_source" value="Page Coaching à distance">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prenom">Prénom</label>
+                                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required minlength="3">
+                            </div>
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required minlength="3">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telephone">Téléphone</label>
+                                <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="demande">Votre demande</label>
+                            <select id="demande" name="demande" required>
+                                <option value="">Sélectionnez...</option>
+                                <option value="distance" selected>Coaching à distance</option>
+                                <option value="domicile">Coaching à domicile</option>
+                                <option value="salle">Coaching en salle</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Décrivez-nous vos objectifs, vos disponibilités..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Envoyer
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo/Logo-fond-noir-picto.png" alt="YC Coaching" class="footer-logo">
+                    <p class="footer-description">
+                        Coaching Sportif Premium à Albi
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/coaching_yc/" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="footer-address">Albi</p>
+                    <p class="footer-hours">Lun - Sam 8h - 20h</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="coaching-domicile.html">Coaching à domicile</a></li>
+                        <li><a href="coaching-salle.html">Coaching en salle</a></li>
+                        <li><a href="coaching-distance.html">Coaching à distance</a></li>
+                        <li><a href="programmes-yc.html">Programmes YC</a></li>
+                        <li><a href="conseils-yc.html">Les conseils YC Coaching</a></li>
+                        <li><a href="qui-sommes-nous.html">Qui sommes-nous ?</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 YC Coaching. Tous droits réservés. Réalisé par <a href="https://be-agency.fr" target="_blank" class="footer-credit"><img src="images/blg-logo-sans-fond.png" alt="B.E Agency" class="footer-credit-logo"></a></p>
+                <div class="footer-social-bottom">
+                    <a href="https://www.instagram.com/coaching_yc/" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="pages.js"></script>
+</body>
+</html>

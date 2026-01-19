@@ -2061,6 +2061,36 @@ section {
    RESPONSIVE MOBILE
    ===================================================== */
 @media (max-width: 768px) {
+    .services-section {
+        padding-top: 40px;
+    }
+
+    .service-card .service-content {
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0;
+    }
+
+    .service-card .service-icon {
+        margin-bottom: 0 !important;
+        margin-right: 1rem;
+        flex-shrink: 0;
+    }
+
+    .service-card .service-title {
+        margin-bottom: 0 !important;
+        flex: 1;
+    }
+
+    .service-card .service-description,
+    .service-card .service-features,
+    .service-card .service-link {
+        width: 100%;
+        flex-basis: 100%;
+        margin-top: 1rem;
+    }
+
     .slide-content {
         justify-content: flex-end;
         padding-bottom: 100px;

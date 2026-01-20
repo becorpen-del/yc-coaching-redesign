@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pages.css">
 </head>
-<body>
+<body class="page-programmes">
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
@@ -81,11 +81,21 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
-                <a href="coaching-domicile.html" class="mobile-nav-link">Coaching à domicile</a>
-                <a href="coaching-salle.html" class="mobile-nav-link">Coaching en salle</a>
-                <a href="coaching-distance.html" class="mobile-nav-link">Coaching à distance</a>
+                <div class="mobile-nav-dropdown">
+                    <button class="mobile-nav-link mobile-dropdown-toggle">
+                        Coaching
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="coaching-domicile.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏠</span>Coaching à domicile</a>
+                        <a href="coaching-salle.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏋️</span>Coaching en salle</a>
+                        <a href="coaching-distance.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">💻</span>Coaching à distance</a>
+                    </div>
+                </div>
                 <a href="programmes-yc.html" class="mobile-nav-link active">Programmes YC</a>
-                <a href="#" class="mobile-nav-link">Les conseils YC Coaching</a>
+                <a href="conseils-yc.html" class="mobile-nav-link">Les conseils YC Coaching</a>
                 <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous ?</a>
                 <a href="contact.html" class="mobile-nav-link">Contact</a>
             </nav>
@@ -118,10 +128,6 @@
                     <a href="#contact" class="cta-button secondary">Me contacter</a>
                 </div>
             </div>
-        </div>
-        <div class="page-hero-scroll">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
         </div>
     </section>
 
@@ -329,6 +335,7 @@
             <div class="section-header-inline">
                 <div>
                     <div class="section-number">03</div>
+                    <span class="section-tag light">Résultats</span>
                     <h2 class="section-title white">Les transformations<br><span>YC Coaching</span></h2>
                 </div>
                 <p class="section-text">Des résultats concrets obtenus par nos clients grâce aux programmes YC.</p>
@@ -507,7 +514,7 @@
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            <p>Cela dépend du format choisi. Pour le coaching à domicile, j'apporte tout le matériel nécessaire. En salle, vous avez accès aux équipements professionnels. Pour le coaching à distance, je m'adapte au matériel dont vous disposez.</p>
+                            <p>Cela dépend du format choisi. Pour le coaching à domicile, nous apportons tout le matériel nécessaire. En salle, vous avez accès aux équipements professionnels. Pour le coaching à distance, nous nous adaptons au matériel dont vous disposez.</p>
                         </div>
                     </div>
 
@@ -546,7 +553,7 @@
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            <p>Oui, je reste disponible 7j/7 pour répondre à vos questions, ajuster votre alimentation ou vous remotiver si besoin. Un suivi régulier est essentiel pour garantir votre réussite.</p>
+                            <p>Oui, nous restons disponibles 7j/7 pour répondre à vos questions, ajuster votre alimentation ou vous remotiver si besoin. Un suivi régulier est essentiel pour garantir votre réussite.</p>
                         </div>
                     </div>
                 </div>

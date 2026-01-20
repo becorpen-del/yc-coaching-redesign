@@ -98,14 +98,14 @@ ul {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     transition: all var(--transition-normal);
 }
 
 .header.scrolled {
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(20px);
-    padding: 0.75rem 0;
+    padding: 0.4rem 0;
     border-bottom: 1px solid var(--color-border);
 }
 
@@ -334,6 +334,68 @@ ul {
     color: var(--color-primary-light);
 }
 
+/* Mobile Dropdown */
+.mobile-nav-dropdown {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-dropdown-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.mobile-dropdown-toggle:hover {
+    color: var(--color-primary-light);
+}
+
+.mobile-dropdown-toggle svg {
+    transition: transform var(--transition-fast);
+}
+
+.mobile-nav-dropdown.active .mobile-dropdown-toggle svg {
+    transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+    display: none;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.mobile-nav-dropdown.active .mobile-dropdown-menu {
+    display: flex;
+}
+
+.mobile-dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+}
+
+.mobile-dropdown-link:hover {
+    color: var(--color-primary-light);
+}
+
+.mobile-dropdown-icon {
+    font-size: 1.1rem;
+}
+
 /* =====================================================
    HERO SLIDER
    ===================================================== */
@@ -371,13 +433,13 @@ ul {
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
-    transform: translateX(100px) scale(1.05);
+    background-position: center center;
+    transform: translateX(100px) scale(1.1);
     transition: transform 0.8s ease-out;
 }
 
 .slide.active .slide-background {
-    transform: translateX(0) scale(1);
+    transform: translateX(0) scale(1.05);
 }
 
 .slide::before {
@@ -561,6 +623,12 @@ ul {
     z-index: 10;
 }
 
+@media (min-width: 1024px) {
+    .nav-arrow {
+        display: none;
+    }
+}
+
 .nav-arrow:hover {
     background: var(--color-primary);
     border-color: var(--color-primary);
@@ -708,20 +776,18 @@ ul {
     box-shadow: 0 0 10px rgba(137, 21, 52, 0.8);
 }
 
-.slide.active .progress-bar {
-    animation: progressBar 10s linear forwards;
-}
+/* Progress bar animée via JavaScript requestAnimationFrame */
 
 /* =====================================================
    SECTION STYLES
    ===================================================== */
 section {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 @media (min-width: 768px) {
     section {
-        padding: 140px 0;
+        padding: 100px 0;
     }
 }
 
@@ -730,7 +796,7 @@ section {
 }
 
 .section-header.center {
-    text-align: center;
+    text-align: left;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -780,6 +846,7 @@ section {
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    max-width: 600px;
 }
 
 .section-title span {
@@ -1042,6 +1109,7 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
+    transform: scale(1.15);
 }
 
 .about-image-main {
@@ -1117,7 +1185,7 @@ section {
 
 .about-feature {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -1194,25 +1262,28 @@ section {
 .transformations-track {
     display: flex;
     gap: 2rem;
-    width: max-content;
-    animation: scrollMarquee 120s linear infinite;
-}
-
-.transformations-track:hover {
-    animation-play-state: paused;
-}
-
-@keyframes scrollMarquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 1rem 0;
 }
 
 .transformations-track::-webkit-scrollbar {
     display: none;
+}
+
+.transformations-track.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+
+.transformations-track.dragging * {
+    pointer-events: none;
 }
 
 .transformation-card {
@@ -2035,10 +2106,7 @@ section {
     }
 }
 
-@keyframes progressBar {
-    from { width: 0%; }
-    to { width: 100%; }
-}
+/* progressBar animation supprimée - utilise requestAnimationFrame */
 
 @keyframes pulse {
     0%, 100% { opacity: 1; }
@@ -2061,6 +2129,13 @@ section {
    RESPONSIVE MOBILE
    ===================================================== */
 @media (max-width: 768px) {
+    /* Slide programmes - image dézoomée au maximum pour voir le logo YC */
+    .slide-programmes .slide-background {
+        background-size: contain !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+    }
+
     .services-section {
         padding-top: 40px;
     }

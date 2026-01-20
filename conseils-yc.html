@@ -81,12 +81,22 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
-                <a href="coaching-domicile.html" class="mobile-nav-link">Coaching à domicile</a>
-                <a href="coaching-salle.html" class="mobile-nav-link">Coaching en salle</a>
-                <a href="coaching-distance.html" class="mobile-nav-link">Coaching à distance</a>
+                <div class="mobile-nav-dropdown">
+                    <button class="mobile-nav-link mobile-dropdown-toggle">
+                        Coaching
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="coaching-domicile.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏠</span>Coaching à domicile</a>
+                        <a href="coaching-salle.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏋️</span>Coaching en salle</a>
+                        <a href="coaching-distance.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">💻</span>Coaching à distance</a>
+                    </div>
+                </div>
                 <a href="programmes-yc.html" class="mobile-nav-link">Programmes YC</a>
                 <a href="conseils-yc.html" class="mobile-nav-link active">Les conseils YC Coaching</a>
-                <a href="index.html#about" class="mobile-nav-link">Qui sommes-nous ?</a>
+                <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous ?</a>
                 <a href="contact.html" class="mobile-nav-link">Contact</a>
             </nav>
         </div>
@@ -190,7 +200,7 @@
                                 <span class="blog-read-time">6 min de lecture</span>
                             </div>
                             <h3 class="blog-title">Comment rester motivé quand les résultats tardent ?</h3>
-                            <p class="blog-excerpt">La motivation fluctue, c'est normal. Découvrez mes conseils pour maintenir le cap même dans les moments difficiles.</p>
+                            <p class="blog-excerpt">La motivation fluctue, c'est normal. Découvrez nos conseils pour maintenir le cap même dans les moments difficiles.</p>
                             <span class="blog-read-more">
                                 Lire l'article
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -363,6 +373,7 @@
         <div class="container">
             <div class="newsletter-content">
                 <div class="newsletter-info">
+                    <span class="section-tag">Newsletter</span>
                     <h2 class="newsletter-title">Restez informé</h2>
                     <p class="newsletter-text">Recevez nos derniers conseils, astuces et actualités directement dans votre boîte mail.</p>
                 </div>

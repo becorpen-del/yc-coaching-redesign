@@ -81,9 +81,19 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
-                <a href="coaching-domicile.html" class="mobile-nav-link">Coaching à domicile</a>
-                <a href="coaching-salle.html" class="mobile-nav-link">Coaching en salle</a>
-                <a href="coaching-distance.html" class="mobile-nav-link">Coaching à distance</a>
+                <div class="mobile-nav-dropdown">
+                    <button class="mobile-nav-link mobile-dropdown-toggle">
+                        Coaching
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="coaching-domicile.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏠</span>Coaching à domicile</a>
+                        <a href="coaching-salle.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏋️</span>Coaching en salle</a>
+                        <a href="coaching-distance.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">💻</span>Coaching à distance</a>
+                    </div>
+                </div>
                 <a href="programmes-yc.html" class="mobile-nav-link active">Programmes YC</a>
                 <a href="conseils-yc.html" class="mobile-nav-link">Les conseils YC Coaching</a>
                 <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous ?</a>

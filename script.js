@@ -35,8 +35,18 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close menu on link click
-        const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+        // Mobile dropdown toggle
+        const mobileDropdownToggles = mobileMenu.querySelectorAll('.mobile-dropdown-toggle');
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const dropdown = toggle.closest('.mobile-nav-dropdown');
+                dropdown.classList.toggle('active');
+            });
+        });
+
+        // Close menu on link click (excluding dropdown toggles)
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-link:not(.mobile-dropdown-toggle), .mobile-dropdown-link');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenuToggle.classList.remove('active');
@@ -47,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =====================================================
-    // HERO SLIDER
+    // HERO SLIDER - Progress bar avec requestAnimationFrame
     // =====================================================
     const slides = document.querySelectorAll('.slide');
     const indicators = document.querySelectorAll('.indicator');
@@ -57,9 +67,62 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.querySelector('.nav-arrow.next');
 
     let currentSlide = 0;
-    const slideInterval = 10000; // 10 secondes
-    let autoplayInterval;
+    const slideDuration = 10000; // 10 secondes
     let isPaused = false;
+    let progressStartTime = null;
+    let progressAnimationId = null;
+    let pausedProgress = 0;
+
+    // Animation fluide de la progress bar avec requestAnimationFrame
+    function animateProgressBar(timestamp) {
+        if (!progressBar || isPaused) return;
+
+        if (!progressStartTime) {
+            progressStartTime = timestamp - (pausedProgress * slideDuration);
+        }
+
+        const elapsed = timestamp - progressStartTime;
+        const progress = Math.min(elapsed / slideDuration, 1);
+
+        progressBar.style.width = `${progress * 100}%`;
+
+        if (progress < 1) {
+            progressAnimationId = requestAnimationFrame(animateProgressBar);
+        } else {
+            // Slide terminé, passer au suivant
+            nextSlide();
+        }
+    }
+
+    function startProgressAnimation() {
+        if (progressAnimationId) {
+            cancelAnimationFrame(progressAnimationId);
+        }
+        progressStartTime = null;
+        pausedProgress = 0;
+        if (progressBar) {
+            progressBar.style.width = '0%';
+        }
+        progressAnimationId = requestAnimationFrame(animateProgressBar);
+    }
+
+    function pauseProgressAnimation() {
+        if (progressAnimationId) {
+            cancelAnimationFrame(progressAnimationId);
+            progressAnimationId = null;
+        }
+        // Sauvegarder la progression actuelle
+        if (progressBar) {
+            const currentWidth = parseFloat(progressBar.style.width) || 0;
+            pausedProgress = currentWidth / 100;
+        }
+        progressStartTime = null;
+    }
+
+    function resumeProgressAnimation() {
+        progressStartTime = null;
+        progressAnimationId = requestAnimationFrame(animateProgressBar);
+    }
 
     function showSlide(index) {
         // Gérer le bouclage
@@ -76,20 +139,21 @@ document.addEventListener('DOMContentLoaded', function() {
         indicators.forEach(ind => ind.classList.remove('active'));
         mobileDots.forEach(dot => dot.classList.remove('active'));
 
-        // Reset progress bar
-        if (progressBar) {
-            progressBar.style.animation = 'none';
-            progressBar.offsetHeight; // Trigger reflow
-            progressBar.style.animation = 'progressBar 10s linear forwards';
-            if (isPaused) {
-                progressBar.style.animationPlayState = 'paused';
-            }
-        }
-
         // Activer les éléments courants
         slides[currentSlide].classList.add('active');
         if (indicators[currentSlide]) indicators[currentSlide].classList.add('active');
         if (mobileDots[currentSlide]) mobileDots[currentSlide].classList.add('active');
+
+        // Redémarrer la progress bar
+        if (!isPaused) {
+            startProgressAnimation();
+        } else {
+            // Si en pause, reset la barre à 0 mais ne pas animer
+            if (progressBar) {
+                progressBar.style.width = '0%';
+            }
+            pausedProgress = 0;
+        }
     }
 
     function nextSlide() {
@@ -100,29 +164,16 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(currentSlide - 1);
     }
 
-    function startAutoplay() {
-        autoplayInterval = setInterval(nextSlide, slideInterval);
-    }
-
-    function resetAutoplay() {
-        clearInterval(autoplayInterval);
-        if (!isPaused) {
-            startAutoplay();
-        }
-    }
-
     // Event listeners pour la navigation
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
             prevSlide();
-            resetAutoplay();
         });
     }
 
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
             nextSlide();
-            resetAutoplay();
         });
     }
 
@@ -130,14 +181,12 @@ document.addEventListener('DOMContentLoaded', function() {
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
             showSlide(index);
-            resetAutoplay();
         });
     });
 
     mobileDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             showSlide(index);
-            resetAutoplay();
         });
     });
 
@@ -146,18 +195,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sliderContainer) {
         sliderContainer.addEventListener('mouseenter', () => {
             isPaused = true;
-            clearInterval(autoplayInterval);
-            if (progressBar) {
-                progressBar.style.animationPlayState = 'paused';
-            }
+            pauseProgressAnimation();
         });
 
         sliderContainer.addEventListener('mouseleave', () => {
             isPaused = false;
-            startAutoplay();
-            if (progressBar) {
-                progressBar.style.animationPlayState = 'running';
-            }
+            resumeProgressAnimation();
         });
     }
 
@@ -165,10 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
             prevSlide();
-            resetAutoplay();
         } else if (e.key === 'ArrowRight') {
             nextSlide();
-            resetAutoplay();
         }
     });
 
@@ -191,17 +232,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const threshold = 50;
         if (touchEndX < touchStartX - threshold) {
             nextSlide();
-            resetAutoplay();
         }
         if (touchEndX > touchStartX + threshold) {
             prevSlide();
-            resetAutoplay();
         }
     }
 
-    // Démarrer l'autoplay
+    // Démarrer le slider
     if (slides.length > 0) {
-        startAutoplay();
+        startProgressAnimation();
     }
 
     // =====================================================
@@ -250,29 +289,201 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =====================================================
-    // TRANSFORMATIONS SLIDER
+    // TRANSFORMATIONS SLIDER (Amélioré avec drag + auto-scroll)
     // =====================================================
-    const transTrack = document.querySelector('.transformations-track');
-    const transPrevBtn = document.querySelector('.trans-nav-btn.prev');
-    const transNextBtn = document.querySelector('.trans-nav-btn.next');
+    function initTransformationsSlider(container) {
+        const track = container.querySelector('.transformations-track');
+        // Chercher les boutons dans le parent (section)
+        const section = container.closest('section') || container.parentElement;
+        const prevBtn = section.querySelector('.trans-nav-btn.prev');
+        const nextBtn = section.querySelector('.trans-nav-btn.next');
 
-    if (transTrack && transPrevBtn && transNextBtn) {
-        const cardWidth = 370; // largeur carte + gap
+        if (!track) {
+            console.log('Transformations: track not found');
+            return;
+        }
 
-        transPrevBtn.addEventListener('click', () => {
-            transTrack.scrollBy({
-                left: -cardWidth,
-                behavior: 'smooth'
-            });
+        const cards = track.querySelectorAll('.transformation-card');
+        if (cards.length === 0) {
+            console.log('Transformations: no cards found');
+            return;
+        }
+
+        console.log('Transformations slider initialized with', cards.length, 'cards');
+
+        // Variables pour le drag
+        let isDragging = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        let velX = 0;
+        let momentumID = null;
+        let autoScrollID = null;
+        let isHovering = false;
+
+        // Calculer la largeur d'une carte
+        const getCardWidth = () => {
+            const card = cards[0];
+            const style = window.getComputedStyle(card);
+            const marginRight = parseInt(style.marginRight) || 0;
+            return card.offsetWidth + marginRight + 20;
+        };
+
+        // Auto-scroll
+        const autoScrollSpeed = 1; // pixels par frame
+
+        function startAutoScroll() {
+            if (autoScrollID || isDragging || isHovering) return;
+            autoScrollID = requestAnimationFrame(autoScrollLoop);
+        }
+
+        function stopAutoScroll() {
+            if (autoScrollID) {
+                cancelAnimationFrame(autoScrollID);
+                autoScrollID = null;
+            }
+        }
+
+        function autoScrollLoop() {
+            if (isDragging || isHovering) {
+                autoScrollID = null;
+                return;
+            }
+
+            track.scrollLeft += autoScrollSpeed;
+
+            // Reset quand on atteint la fin
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            if (track.scrollLeft >= maxScroll) {
+                track.scrollLeft = 0;
+            }
+
+            autoScrollID = requestAnimationFrame(autoScrollLoop);
+        }
+
+        // Pause au survol
+        track.addEventListener('mouseenter', () => {
+            isHovering = true;
+            stopAutoScroll();
         });
 
-        transNextBtn.addEventListener('click', () => {
-            transTrack.scrollBy({
-                left: cardWidth,
-                behavior: 'smooth'
-            });
+        track.addEventListener('mouseleave', () => {
+            isHovering = false;
+            if (!isDragging) {
+                setTimeout(startAutoScroll, 1000);
+            }
         });
+
+        // Flèches de navigation
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                const cardWidth = getCardWidth();
+                track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                setTimeout(startAutoScroll, 3000);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                const cardWidth = getCardWidth();
+                track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                setTimeout(startAutoScroll, 3000);
+            });
+        }
+
+        // Drag avec la souris
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            track.classList.add('dragging');
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+            stopAutoScroll();
+            cancelMomentum();
+        });
+
+        track.addEventListener('mouseup', (e) => {
+            isDragging = false;
+            track.classList.remove('dragging');
+            beginMomentum();
+        });
+
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            const prevScrollLeft = track.scrollLeft;
+            track.scrollLeft = scrollLeft - walk;
+            velX = track.scrollLeft - prevScrollLeft;
+        });
+
+        // Touch events pour mobile
+        track.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            stopAutoScroll();
+            startX = e.touches[0].pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+            cancelMomentum();
+        }, { passive: true });
+
+        track.addEventListener('touchend', () => {
+            isDragging = false;
+            beginMomentum();
+            setTimeout(startAutoScroll, 3000);
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const x = e.touches[0].pageX - track.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            const prevScrollLeft = track.scrollLeft;
+            track.scrollLeft = scrollLeft - walk;
+            velX = track.scrollLeft - prevScrollLeft;
+        }, { passive: true });
+
+        // Momentum / inertie
+        function beginMomentum() {
+            cancelMomentum();
+            momentumID = requestAnimationFrame(momentumLoop);
+        }
+
+        function cancelMomentum() {
+            if (momentumID) {
+                cancelAnimationFrame(momentumID);
+                momentumID = null;
+            }
+        }
+
+        function momentumLoop() {
+            track.scrollLeft += velX;
+            velX *= 0.95;
+            if (Math.abs(velX) > 0.5) {
+                momentumID = requestAnimationFrame(momentumLoop);
+            }
+        }
+
+        // Empêcher la sélection de texte pendant le drag
+        track.addEventListener('dragstart', (e) => e.preventDefault());
+
+        // Démarrer l'auto-scroll quand le slider est visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoScroll();
+                } else {
+                    stopAutoScroll();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(container);
+
+        console.log('Auto-scroll configured');
     }
+
+    // Initialiser tous les sliders de transformations sur la page
+    document.querySelectorAll('.transformations-slider').forEach(initTransformationsSlider);
 
     // =====================================================
     // SCROLL ANIMATIONS (AOS-like)

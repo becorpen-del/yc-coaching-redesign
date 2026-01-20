@@ -80,9 +80,19 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
-                <a href="coaching-domicile.html" class="mobile-nav-link">Coaching à domicile</a>
-                <a href="coaching-salle.html" class="mobile-nav-link">Coaching en salle</a>
-                <a href="coaching-distance.html" class="mobile-nav-link">Coaching à distance</a>
+                <div class="mobile-nav-dropdown">
+                    <button class="mobile-nav-link mobile-dropdown-toggle">
+                        Coaching
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="coaching-domicile.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏠</span>Coaching à domicile</a>
+                        <a href="coaching-salle.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏋️</span>Coaching en salle</a>
+                        <a href="coaching-distance.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">💻</span>Coaching à distance</a>
+                    </div>
+                </div>
                 <a href="programmes-yc.html" class="mobile-nav-link">Programmes YC</a>
                 <a href="conseils-yc.html" class="mobile-nav-link">Les conseils YC Coaching</a>
                 <a href="qui-sommes-nous.html" class="mobile-nav-link">Qui sommes-nous ?</a>
@@ -100,12 +110,12 @@
                 <div class="slide-content">
                     <div class="slide-badge">Service Premium</div>
                     <h1 class="slide-title">
-                        <span>Entraînement personnalisé</span>
+                        <span>-50% en crédit d'impôt</span>
                         <div class="title-line">Coaching</div>
                         <div class="title-line">à domicile</div>
                     </h1>
                     <p class="slide-text">
-                        Transformez votre espace de vie en salle de sport. Nos coachs certifiés se déplacent chez vous avec tout le matériel nécessaire.
+                        Le luxe et le confort d'avoir son coach privé directement chez-soi.
                     </p>
                     <div class="cta-group">
                         <a href="contact.html" class="cta-button primary">
@@ -170,7 +180,7 @@
             </div>
 
             <!-- Slide 4 -->
-            <div class="slide" data-label="Programmes">
+            <div class="slide slide-programmes" data-label="Programmes">
                 <div class="slide-background" style="background-image: url('images/banniere-programme-yc.png');"></div>
                 <div class="slide-content">
                     <div class="slide-badge">Autonomie guidée</div>
@@ -268,7 +278,7 @@
                         <ul class="service-features">
                             <li>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-                                Crédit d'impôt 50%
+                                Crédit d'impôt -50%
                             </li>
                             <li>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
@@ -401,7 +411,7 @@
             <div class="about-grid">
                 <div class="about-images">
                     <div class="video-wrapper-9-16">
-                        <video controls playsinline>
+                        <video controls playsinline poster="images/img-video-remerciement.jpeg">
                             <source src="videos/video-qui-sommes-nous.mov" type="video/quicktime">
                             <source src="videos/video-qui-sommes-nous.mov" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture de vidéos.
@@ -412,13 +422,10 @@
                     <span class="section-tag">À propos</span>
                     <h2 class="section-title">Votre coach sportif<br><span>à Albi</span></h2>
                     <p class="about-text">
-                        Passionné par le sport et le bien-être, je mets mon expertise au service de vos objectifs.
-                        Que vous souhaitiez perdre du poids, prendre de la masse musculaire ou simplement améliorer
-                        votre condition physique, je vous accompagne à chaque étape.
+                        Passionnés par le sport et le bien-être, nous mettons notre expertise au service de vos objectifs. Que vous souhaitiez perdre du poids, prendre de la masse musculaire, développer des aptitudes physiques liées à votre pratique sportive ou simplement améliorer votre condition, nous vous accompagnons à chaque étape.
                     </p>
                     <p class="about-text">
-                        Ma méthode ? Un suivi personnalisé, des programmes adaptés et une motivation sans faille
-                        pour vous aider à atteindre vos objectifs.
+                        Notre méthode ? Un suivi 100% sur-mesure, des entraînements personnalisés, votre nutrition encadrée et notre plus grande force : UNE RELATION UNIQUE.
                     </p>
                     <div class="about-features">
                         <div class="about-feature">
@@ -429,18 +436,16 @@
                             </div>
                             <div>
                                 <strong>Coach certifié</strong>
-                                <span>Diplômé d'État BPJEPS</span>
                             </div>
                         </div>
                         <div class="about-feature">
                             <div class="feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                                 </svg>
                             </div>
                             <div>
-                                <strong>Méthode efficace</strong>
-                                <span>Résultats visibles rapidement</span>
+                                <strong>5/5 Avis Google</strong>
                             </div>
                         </div>
                     </div>

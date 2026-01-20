@@ -81,9 +81,19 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
-                <a href="coaching-domicile.html" class="mobile-nav-link">Coaching à domicile</a>
-                <a href="coaching-salle.html" class="mobile-nav-link">Coaching en salle</a>
-                <a href="coaching-distance.html" class="mobile-nav-link">Coaching à distance</a>
+                <div class="mobile-nav-dropdown">
+                    <button class="mobile-nav-link mobile-dropdown-toggle">
+                        Coaching
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-menu">
+                        <a href="coaching-domicile.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏠</span>Coaching à domicile</a>
+                        <a href="coaching-salle.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">🏋️</span>Coaching en salle</a>
+                        <a href="coaching-distance.html" class="mobile-dropdown-link"><span class="mobile-dropdown-icon">💻</span>Coaching à distance</a>
+                    </div>
+                </div>
                 <a href="programmes-yc.html" class="mobile-nav-link">Programmes YC</a>
                 <a href="conseils-yc.html" class="mobile-nav-link">Les conseils YC Coaching</a>
                 <a href="qui-sommes-nous.html" class="mobile-nav-link active">Qui sommes-nous ?</a>
@@ -95,7 +105,7 @@
     <!-- Hero Page -->
     <section class="page-hero about-hero">
         <div class="page-hero-background">
-            <img src="images/banniere-qui-soommes-nous.png" alt="Team YC Coaching">
+            <img src="images/Qui sommes-nous.png" alt="Team YC Coaching">
         </div>
         <div class="page-hero-overlay"></div>
         <div class="container">
@@ -117,8 +127,9 @@
         <div class="container">
             <div class="about-story-grid">
                 <div class="about-story-content">
+                    <span class="section-tag">Notre histoire</span>
                     <h2 class="about-story-title">D'où vient YC Coaching ?</h2>
-                    <p class="about-story-text">YC Coaching c'est une aventure qui a commencé il y a plus de 5 ans et qui aujourd'hui ne cesse de grandir grâce à vous tous qui nous faites confiance sur la qualité de nos services. Au-delà de la performance et de l'amélioration physique, YC est une grande famille où l'humain et l'intégrité morale de nos membres prime avant tout. Je suis convaincu qu'ensemble, nous pouvons réaliser de grandes choses et transformer votre corps et votre esprit, que ce soit pour votre bien-être et votre physique.</p>
+                    <p class="about-story-text">YC Coaching c'est une aventure qui a commencé il y a plus de 5 ans et qui aujourd'hui ne cesse de grandir grâce à vous tous qui nous faites confiance sur la qualité de nos services. Au-delà de la performance et de l'amélioration physique, YC est une grande famille où l'humain et l'intégrité morale de nos membres prime avant tout. Nous sommes convaincus qu'ensemble, nous pouvons réaliser de grandes choses et transformer votre corps et votre esprit, que ce soit pour votre bien-être et votre physique.</p>
                     <p class="about-story-quote">"Un physique fort est prêt à accueillir un mental à l'image de sa puissance."</p>
                                     </div>
                 <div class="about-story-image">
@@ -131,12 +142,13 @@
     <!-- Section Témoignages -->
     <section class="about-testimonial-section">
         <div class="container">
+            <span class="section-tag">Témoignages</span>
             <h2 class="about-testimonial-title">"Leurs mots valent bien plus que les miens"</h2>
 
             <div class="about-testimonial-video">
                 <div class="video-container">
                     <div class="video-wrapper-16-9">
-                        <video controls playsinline>
+                        <video controls playsinline poster="images/img-video-remerciement.jpeg">
                             <source src="videos/video-qui-sommes-nous.mov" type="video/quicktime">
                             <source src="videos/video-qui-sommes-nous.mov" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture de vidéos.

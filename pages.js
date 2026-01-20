@@ -79,59 +79,180 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =====================================================
-    // TRANSFORMATIONS SLIDER (Pages)
+    // TRANSFORMATIONS SLIDER (Pages - Amélioré avec auto-scroll)
     // =====================================================
-    const transTrack = document.getElementById('transformationsTrack');
-    const transPrevBtn = document.querySelector('.transformations-section .trans-nav-btn.prev');
-    const transNextBtn = document.querySelector('.transformations-section .trans-nav-btn.next');
+    function initPageTransformationsSlider() {
+        const track = document.getElementById('transformationsTrack');
+        if (!track) return;
 
-    if (transTrack && transPrevBtn && transNextBtn) {
-        const scrollAmount = 370; // Largeur carte + gap
+        const prevBtn = document.querySelector('.transformations-section .trans-nav-btn.prev');
+        const nextBtn = document.querySelector('.transformations-section .trans-nav-btn.next');
+        const cards = track.querySelectorAll('.transformation-card');
 
-        transPrevBtn.addEventListener('click', () => {
-            transTrack.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
+        if (cards.length === 0) return;
+
+        let isDragging = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        let velX = 0;
+        let momentumID = null;
+        let autoScrollID = null;
+        let isHovering = false;
+
+        const getCardWidth = () => {
+            const card = cards[0];
+            return card.offsetWidth + 32;
+        };
+
+        // Auto-scroll
+        const autoScrollSpeed = 1;
+
+        function startAutoScroll() {
+            if (autoScrollID || isDragging || isHovering) return;
+            autoScrollID = requestAnimationFrame(autoScrollLoop);
+        }
+
+        function stopAutoScroll() {
+            if (autoScrollID) {
+                cancelAnimationFrame(autoScrollID);
+                autoScrollID = null;
+            }
+        }
+
+        function autoScrollLoop() {
+            if (isDragging || isHovering) {
+                autoScrollID = null;
+                return;
+            }
+
+            track.scrollLeft += autoScrollSpeed;
+
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            if (track.scrollLeft >= maxScroll) {
+                track.scrollLeft = 0;
+            }
+
+            autoScrollID = requestAnimationFrame(autoScrollLoop);
+        }
+
+        // Pause au survol
+        track.addEventListener('mouseenter', () => {
+            isHovering = true;
+            stopAutoScroll();
+        });
+
+        track.addEventListener('mouseleave', () => {
+            isHovering = false;
+            if (!isDragging) {
+                setTimeout(startAutoScroll, 1000);
+            }
+        });
+
+        // Navigation par flèches
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                track.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+                setTimeout(startAutoScroll, 3000);
             });
-        });
+        }
 
-        transNextBtn.addEventListener('click', () => {
-            transTrack.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                track.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+                setTimeout(startAutoScroll, 3000);
             });
+        }
+
+        // Drag souris
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            track.classList.add('dragging');
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+            stopAutoScroll();
+            cancelMomentum();
         });
 
-        // Drag to scroll
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        transTrack.addEventListener('mousedown', (e) => {
-            isDown = true;
-            transTrack.classList.add('grabbing');
-            startX = e.pageX - transTrack.offsetLeft;
-            scrollLeft = transTrack.scrollLeft;
+        track.addEventListener('mouseup', () => {
+            isDragging = false;
+            track.classList.remove('dragging');
+            beginMomentum();
         });
 
-        transTrack.addEventListener('mouseleave', () => {
-            isDown = false;
-            transTrack.classList.remove('grabbing');
-        });
-
-        transTrack.addEventListener('mouseup', () => {
-            isDown = false;
-            transTrack.classList.remove('grabbing');
-        });
-
-        transTrack.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
             e.preventDefault();
-            const x = e.pageX - transTrack.offsetLeft;
-            const walk = (x - startX) * 2;
-            transTrack.scrollLeft = scrollLeft - walk;
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            const prevScrollLeft = track.scrollLeft;
+            track.scrollLeft = scrollLeft - walk;
+            velX = track.scrollLeft - prevScrollLeft;
         });
+
+        // Touch mobile
+        track.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            stopAutoScroll();
+            startX = e.touches[0].pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+            cancelMomentum();
+        }, { passive: true });
+
+        track.addEventListener('touchend', () => {
+            isDragging = false;
+            beginMomentum();
+            setTimeout(startAutoScroll, 3000);
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const x = e.touches[0].pageX - track.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            const prevScrollLeft = track.scrollLeft;
+            track.scrollLeft = scrollLeft - walk;
+            velX = track.scrollLeft - prevScrollLeft;
+        }, { passive: true });
+
+        // Momentum
+        function beginMomentum() {
+            cancelMomentum();
+            momentumID = requestAnimationFrame(momentumLoop);
+        }
+
+        function cancelMomentum() {
+            if (momentumID) {
+                cancelAnimationFrame(momentumID);
+                momentumID = null;
+            }
+        }
+
+        function momentumLoop() {
+            track.scrollLeft += velX;
+            velX *= 0.95;
+            if (Math.abs(velX) > 0.5) {
+                momentumID = requestAnimationFrame(momentumLoop);
+            }
+        }
+
+        track.addEventListener('dragstart', (e) => e.preventDefault());
+
+        // Démarrer l'auto-scroll quand le slider est visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoScroll();
+                } else {
+                    stopAutoScroll();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(track);
     }
+
+    initPageTransformationsSlider();
 
     // =====================================================
     // SCROLL REVEAL ANIMATIONS
@@ -361,8 +482,13 @@ document.addEventListener('DOMContentLoaded', function() {
             cursor: grab;
         }
 
-        .transformations-track.grabbing {
+        .transformations-track.dragging {
             cursor: grabbing;
+            scroll-behavior: auto;
+        }
+
+        .transformations-track.dragging * {
+            pointer-events: none;
         }
     `;
     document.head.appendChild(validationStyles);

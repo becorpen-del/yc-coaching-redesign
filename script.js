@@ -477,25 +477,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Empêcher la sélection de texte pendant le drag
         track.addEventListener('dragstart', (e) => e.preventDefault());
 
-        // Démarrer l'auto-scroll quand le slider est visible
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(startAutoScroll, 500);
-                } else {
-                    stopAutoScroll();
-                }
-            });
-        }, { threshold: 0.1 });
+        // Démarrer l'auto-scroll
+        function checkAndStartAutoScroll() {
+            const rect = container.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-        observer.observe(container);
-
-        // Démarrer aussi après un court délai au cas où
-        setTimeout(() => {
-            if (!autoScrollID && !isDragging && !isHovering && !isTouching) {
+            if (isVisible && !autoScrollID && !isDragging && !isHovering && !isTouching) {
                 startAutoScroll();
+            } else if (!isVisible) {
+                stopAutoScroll();
             }
-        }, 2000);
+        }
+
+        // Vérifier périodiquement si visible
+        setInterval(checkAndStartAutoScroll, 1000);
+
+        // Démarrer après un court délai
+        setTimeout(startAutoScroll, 1500);
     }
 
     // Initialiser tous les sliders de transformations sur la page
@@ -1077,18 +1075,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Empêcher la sélection pendant le drag
         googleReviewsContainer.addEventListener('dragstart', (e) => e.preventDefault());
 
-        // Démarrer l'auto-scroll quand visible
-        const reviewsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startReviewsAutoScroll();
-                } else {
-                    stopReviewsAutoScroll();
-                }
-            });
-        }, { threshold: 0.3 });
+        // Démarrer l'auto-scroll
+        function checkAndStartReviewsAutoScroll() {
+            const rect = googleReviewsContainer.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-        reviewsObserver.observe(googleReviewsContainer.parentElement);
+            if (isVisible && !reviewsAutoScrollID && !reviewsIsDragging && !reviewsIsHovering) {
+                startReviewsAutoScroll();
+            } else if (!isVisible) {
+                stopReviewsAutoScroll();
+            }
+        }
+
+        // Vérifier périodiquement si visible
+        setInterval(checkAndStartReviewsAutoScroll, 1000);
+
+        // Démarrer après un court délai
+        setTimeout(startReviewsAutoScroll, 1500);
 
         console.log('[YC Reviews] Avis Google chargés avec défilement automatique');
     }

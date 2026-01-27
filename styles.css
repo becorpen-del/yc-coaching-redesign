@@ -1793,11 +1793,11 @@ section {
     display: flex;
     gap: 1.5rem;
     overflow-x: auto;
-    scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding: 1rem 0;
     cursor: grab;
+    -webkit-overflow-scrolling: touch;
 }
 
 .google-reviews-track::-webkit-scrollbar {

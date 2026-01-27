@@ -342,6 +342,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function startAutoScroll() {
             if (autoScrollID || isDragging || isHovering || isTouching) return;
+            // Vérifier qu'il y a du contenu à scroller
+            if (track.scrollWidth <= track.clientWidth) {
+                console.log('Transformations: nothing to scroll (scrollWidth <= clientWidth)');
+                return;
+            }
+            console.log('Transformations: starting auto-scroll');
             autoScrollID = requestAnimationFrame(autoScrollLoop);
         }
 
@@ -781,9 +787,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.style.setProperty('--transition-fast', '0s');
         document.documentElement.style.setProperty('--transition-normal', '0s');
         document.documentElement.style.setProperty('--transition-slow', '0s');
-
-        // Arrêter l'autoplay du slider
-        clearInterval(autoplayInterval);
     }
 
     // =====================================================
@@ -948,6 +951,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function startReviewsAutoScroll() {
             if (reviewsAutoScrollID || reviewsIsDragging || reviewsIsHovering) return;
+            // Vérifier qu'il y a du contenu à scroller
+            if (googleReviewsContainer.scrollWidth <= googleReviewsContainer.clientWidth) {
+                console.log('[YC Reviews] nothing to scroll (scrollWidth <= clientWidth)');
+                return;
+            }
+            console.log('[YC Reviews] starting auto-scroll');
             reviewsAutoScrollID = requestAnimationFrame(reviewsAutoScrollLoop);
         }
 

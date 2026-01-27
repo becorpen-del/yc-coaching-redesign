@@ -220,20 +220,28 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sliderContainer) {
         sliderContainer.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
+            // Mettre en pause pendant le touch
+            isPaused = true;
+            pauseProgressAnimation();
         }, { passive: true });
 
         sliderContainer.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
+            // Reprendre après le swipe
+            isPaused = false;
         }, { passive: true });
     }
 
     function handleSwipe() {
         const threshold = 50;
-        if (touchEndX < touchStartX - threshold) {
+        const diff = touchStartX - touchEndX;
+
+        if (diff > threshold) {
+            // Swipe vers la gauche → slide suivant
             nextSlide();
-        }
-        if (touchEndX > touchStartX + threshold) {
+        } else if (diff < -threshold) {
+            // Swipe vers la droite → slide précédent
             prevSlide();
         }
     }
@@ -329,10 +337,11 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Auto-scroll
-        const autoScrollSpeed = 1; // pixels par frame
+        const autoScrollSpeed = 0.8; // pixels par frame
+        let isTouching = false;
 
         function startAutoScroll() {
-            if (autoScrollID || isDragging || isHovering) return;
+            if (autoScrollID || isDragging || isHovering || isTouching) return;
             autoScrollID = requestAnimationFrame(autoScrollLoop);
         }
 
@@ -344,16 +353,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function autoScrollLoop() {
-            if (isDragging || isHovering) {
+            if (isDragging || isHovering || isTouching) {
                 autoScrollID = null;
                 return;
             }
 
             track.scrollLeft += autoScrollSpeed;
 
-            // Reset quand on atteint la fin
+            // Reset quand on atteint la fin (boucle infinie)
             const maxScroll = track.scrollWidth - track.clientWidth;
-            if (track.scrollLeft >= maxScroll) {
+            if (track.scrollLeft >= maxScroll - 1) {
                 track.scrollLeft = 0;
             }
 
@@ -421,6 +430,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Touch events pour mobile
         track.addEventListener('touchstart', (e) => {
             isDragging = true;
+            isTouching = true;
             stopAutoScroll();
             startX = e.touches[0].pageX - track.offsetLeft;
             scrollLeft = track.scrollLeft;
@@ -429,8 +439,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         track.addEventListener('touchend', () => {
             isDragging = false;
+            isTouching = false;
             beginMomentum();
-            setTimeout(startAutoScroll, 3000);
+            setTimeout(startAutoScroll, 2000);
         });
 
         track.addEventListener('touchmove', (e) => {
@@ -470,16 +481,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    startAutoScroll();
+                    setTimeout(startAutoScroll, 500);
                 } else {
                     stopAutoScroll();
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1 });
 
         observer.observe(container);
 
-        console.log('Auto-scroll configured');
+        // Démarrer aussi après un court délai au cas où
+        setTimeout(() => {
+            if (!autoScrollID && !isDragging && !isHovering && !isTouching) {
+                startAutoScroll();
+            }
+        }, 2000);
     }
 
     // Initialiser tous les sliders de transformations sur la page
@@ -770,6 +786,311 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Arrêter l'autoplay du slider
         clearInterval(autoplayInterval);
+    }
+
+    // =====================================================
+    // GOOGLE REVIEWS
+    // =====================================================
+    const googleReviewsContainer = document.getElementById('googleReviewsList');
+
+    if (googleReviewsContainer) {
+        // Données des avis Google (47 avis au total, 10 affichés)
+        const googleReviewsData = {
+            rating: 5.0,
+            totalReviews: 47,
+            reviews: [
+                {
+                    author_name: 'Liam Debeaulieu',
+                    rating: 5,
+                    text: "Yoann est un coach sérieux, impliqué et profondément humain. Sa manière de travailler, son sens de l'écoute et la qualité de l'accompagnement qu'il propose. On sent une vraie réflexion derrière sa méthode, avec beaucoup de respect pour les personnes qu'il accompagne et leurs parcours. YC Coaching c'est du professionnalisme, de la bienveillance et la pédagogie ! Je recommande sans hésiter à toute personne qui cherche un accompagnement sportif réfléchi et de qualité.",
+                    time: Date.now() / 1000 - 86400 * 14
+                },
+                {
+                    author_name: 'Gaby Picho',
+                    rating: 5,
+                    text: "Super coach, très à l'écoute et vraiment calé sur le fonctionnement du corps. Il prend le temps d'expliquer les mouvements, de corriger les postures et d'adapter les exercices pour que ce soit efficace et sans douleur.",
+                    time: Date.now() / 1000 - 86400 * 21
+                },
+                {
+                    author_name: 'Renaud Rey',
+                    rating: 5,
+                    text: "Excellent coach sportif ! Professionnel, motivant et toujours à l'écoute. Les séances sont parfaitement adaptées à mes objectifs et les progrès sont visibles rapidement.",
+                    time: Date.now() / 1000 - 86400 * 30
+                },
+                {
+                    author_name: 'Sasha Labbe',
+                    rating: 5,
+                    text: "J'ai commencé à travailler avec Yoann il y a maintenant plus d'un an, dans le but de perdre du poids. Grâce à son accompagnement personnalisé, j'ai retrouvé de l'énergie et de la confiance en moi. Les séances sont variées, motivantes et adaptées à mes besoins.",
+                    time: Date.now() / 1000 - 86400 * 60
+                },
+                {
+                    author_name: 'Pascal (Famille Services)',
+                    rating: 5,
+                    text: "J'ai commencé un coaching suite à une bonne résolution... Qui aurait dû, comme toutes les bonnes résolutions, s'arrêter très vite. Mais le suivi de Yoann et sa motivation pour deux fait que ce coaching s'est transformé en un contrat à durée indéterminée ! Bravo 👏",
+                    time: Date.now() / 1000 - 86400 * 60
+                },
+                {
+                    author_name: 'Pascale Antonio',
+                    rating: 5,
+                    text: "Trop sédentaire et en surpoids, j'ai démarré un essai de séances avec YC Coaching. Après mes 10 premières séances, j'ai vraiment vu la différence. Je suis moins essoufflée et plus tonique.",
+                    time: Date.now() / 1000 - 86400 * 60
+                },
+                {
+                    author_name: 'Reglab',
+                    rating: 5,
+                    text: "Coach très professionnel et très sympathique, à l'écoute, très satisfait pour ma part du programme personnalisé que ce soit pour la musculation ou pour la diététique.",
+                    time: Date.now() / 1000 - 86400 * 60
+                },
+                {
+                    author_name: 'Hugo',
+                    rating: 5,
+                    text: "Excellent coach, professionnel et motivant !!!!! Toujours de bonne humeur et motivé, c'est un vrai plaisir. Merci Yoann ! :)",
+                    time: Date.now() / 1000 - 86400 * 60
+                },
+                {
+                    author_name: 'Carla D.',
+                    rating: 5,
+                    text: "Yoann est un super coach !!! Les progrès que j'ai pu faire grâce à lui sont remarquables. Il s'adapte tellement bien en fonction des personnes et des besoins. On l'adore 🩷🌸😘",
+                    time: Date.now() / 1000 - 86400 * 60
+                },
+                {
+                    author_name: 'Olivier Lopes',
+                    rating: 5,
+                    text: "Yoann est un coach sportif professionnel avec des programmes sur mesure à chacun. Je le recommande vivement si vous avez besoin d'un coach de sport sur Albi !",
+                    time: Date.now() / 1000 - 86400 * 60
+                }
+            ]
+        };
+
+        // Fonction pour générer les étoiles
+        function getStars(rating) {
+            const fullStars = Math.floor(rating);
+            const emptyStars = 5 - fullStars;
+            return '★'.repeat(fullStars) + '☆'.repeat(emptyStars);
+        }
+
+        // Fonction pour formater la date
+        function formatReviewDate(timestamp) {
+            if (!timestamp) return '';
+            const date = new Date(timestamp * 1000);
+            const now = new Date();
+            const diffTime = Math.abs(now - date);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+            if (diffDays < 1) {
+                return "Aujourd'hui";
+            } else if (diffDays === 1) {
+                return "Hier";
+            } else if (diffDays < 7) {
+                return `Il y a ${diffDays} jours`;
+            } else if (diffDays < 30) {
+                const weeks = Math.floor(diffDays / 7);
+                return `Il y a ${weeks} semaine${weeks > 1 ? 's' : ''}`;
+            } else if (diffDays < 365) {
+                const months = Math.floor(diffDays / 30);
+                return `Il y a ${months} mois`;
+            } else {
+                const options = { month: 'long', year: 'numeric' };
+                return date.toLocaleDateString('fr-FR', options);
+            }
+        }
+
+        // Fonction pour échapper le HTML
+        function escapeHtmlReview(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Créer les cartes d'avis
+        const reviewsHTML = googleReviewsData.reviews.map((review, index) => {
+            const isLong = review.text && review.text.length > 200;
+            return `
+                <article class="google-review-card">
+                    <div class="google-review-header">
+                        <div>
+                            <h3 class="google-review-author">${escapeHtmlReview(review.author_name)}</h3>
+                            <span class="google-review-date">${formatReviewDate(review.time)}</span>
+                        </div>
+                        <div class="google-review-stars">${getStars(review.rating)}</div>
+                    </div>
+                    <p class="google-review-text ${isLong ? 'truncated' : ''}">${escapeHtmlReview(review.text)}</p>
+                    ${isLong ? '<span class="google-review-read-more">Lire la suite</span>' : ''}
+                </article>
+            `;
+        }).join('');
+
+        // Dupliquer les avis pour un défilement infini
+        googleReviewsContainer.innerHTML = reviewsHTML + reviewsHTML;
+
+        // Gérer le "Lire la suite"
+        googleReviewsContainer.querySelectorAll('.google-review-read-more').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const textEl = btn.previousElementSibling;
+                if (textEl.classList.contains('truncated')) {
+                    textEl.classList.remove('truncated');
+                    btn.textContent = 'Voir moins';
+                } else {
+                    textEl.classList.add('truncated');
+                    btn.textContent = 'Lire la suite';
+                }
+            });
+        });
+
+        // Auto-scroll pour les avis Google
+        let reviewsAutoScrollID = null;
+        let reviewsIsDragging = false;
+        let reviewsIsHovering = false;
+        let reviewsStartX = 0;
+        let reviewsScrollLeft = 0;
+        let reviewsVelX = 0;
+        let reviewsMomentumID = null;
+        const reviewsScrollSpeed = 0.8;
+
+        function startReviewsAutoScroll() {
+            if (reviewsAutoScrollID || reviewsIsDragging || reviewsIsHovering) return;
+            reviewsAutoScrollID = requestAnimationFrame(reviewsAutoScrollLoop);
+        }
+
+        function stopReviewsAutoScroll() {
+            if (reviewsAutoScrollID) {
+                cancelAnimationFrame(reviewsAutoScrollID);
+                reviewsAutoScrollID = null;
+            }
+        }
+
+        function reviewsAutoScrollLoop() {
+            if (reviewsIsDragging || reviewsIsHovering) {
+                reviewsAutoScrollID = null;
+                return;
+            }
+
+            googleReviewsContainer.scrollLeft += reviewsScrollSpeed;
+
+            // Reset quand on atteint la moitié (les éléments dupliqués)
+            const halfScroll = googleReviewsContainer.scrollWidth / 2;
+            if (googleReviewsContainer.scrollLeft >= halfScroll) {
+                googleReviewsContainer.scrollLeft = 0;
+            }
+
+            reviewsAutoScrollID = requestAnimationFrame(reviewsAutoScrollLoop);
+        }
+
+        // Pause au survol des cartes uniquement
+        function setupCardHoverPause() {
+            const cards = googleReviewsContainer.querySelectorAll('.google-review-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    reviewsIsHovering = true;
+                    stopReviewsAutoScroll();
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    reviewsIsHovering = false;
+                    if (!reviewsIsDragging) {
+                        setTimeout(startReviewsAutoScroll, 500);
+                    }
+                });
+            });
+        }
+        setupCardHoverPause();
+
+        // Drag avec la souris
+        googleReviewsContainer.addEventListener('mousedown', (e) => {
+            reviewsIsDragging = true;
+            googleReviewsContainer.classList.add('dragging');
+            reviewsStartX = e.pageX - googleReviewsContainer.offsetLeft;
+            reviewsScrollLeft = googleReviewsContainer.scrollLeft;
+            stopReviewsAutoScroll();
+            cancelReviewsMomentum();
+        });
+
+        googleReviewsContainer.addEventListener('mouseup', () => {
+            reviewsIsDragging = false;
+            googleReviewsContainer.classList.remove('dragging');
+            beginReviewsMomentum();
+        });
+
+        googleReviewsContainer.addEventListener('mouseleave', () => {
+            if (reviewsIsDragging) {
+                reviewsIsDragging = false;
+                googleReviewsContainer.classList.remove('dragging');
+            }
+        });
+
+        googleReviewsContainer.addEventListener('mousemove', (e) => {
+            if (!reviewsIsDragging) return;
+            e.preventDefault();
+            const x = e.pageX - googleReviewsContainer.offsetLeft;
+            const walk = (x - reviewsStartX) * 1.5;
+            const prevScrollLeft = googleReviewsContainer.scrollLeft;
+            googleReviewsContainer.scrollLeft = reviewsScrollLeft - walk;
+            reviewsVelX = googleReviewsContainer.scrollLeft - prevScrollLeft;
+        });
+
+        // Touch events pour mobile
+        googleReviewsContainer.addEventListener('touchstart', (e) => {
+            reviewsIsDragging = true;
+            stopReviewsAutoScroll();
+            reviewsStartX = e.touches[0].pageX - googleReviewsContainer.offsetLeft;
+            reviewsScrollLeft = googleReviewsContainer.scrollLeft;
+            cancelReviewsMomentum();
+        }, { passive: true });
+
+        googleReviewsContainer.addEventListener('touchend', () => {
+            reviewsIsDragging = false;
+            beginReviewsMomentum();
+            setTimeout(startReviewsAutoScroll, 3000);
+        });
+
+        googleReviewsContainer.addEventListener('touchmove', (e) => {
+            if (!reviewsIsDragging) return;
+            const x = e.touches[0].pageX - googleReviewsContainer.offsetLeft;
+            const walk = (x - reviewsStartX) * 1.5;
+            const prevScrollLeft = googleReviewsContainer.scrollLeft;
+            googleReviewsContainer.scrollLeft = reviewsScrollLeft - walk;
+            reviewsVelX = googleReviewsContainer.scrollLeft - prevScrollLeft;
+        }, { passive: true });
+
+        // Momentum / inertie
+        function beginReviewsMomentum() {
+            cancelReviewsMomentum();
+            reviewsMomentumID = requestAnimationFrame(reviewsMomentumLoop);
+        }
+
+        function cancelReviewsMomentum() {
+            if (reviewsMomentumID) {
+                cancelAnimationFrame(reviewsMomentumID);
+                reviewsMomentumID = null;
+            }
+        }
+
+        function reviewsMomentumLoop() {
+            googleReviewsContainer.scrollLeft += reviewsVelX;
+            reviewsVelX *= 0.95;
+            if (Math.abs(reviewsVelX) > 0.5) {
+                reviewsMomentumID = requestAnimationFrame(reviewsMomentumLoop);
+            }
+        }
+
+        // Empêcher la sélection pendant le drag
+        googleReviewsContainer.addEventListener('dragstart', (e) => e.preventDefault());
+
+        // Démarrer l'auto-scroll quand visible
+        const reviewsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startReviewsAutoScroll();
+                } else {
+                    stopReviewsAutoScroll();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        reviewsObserver.observe(googleReviewsContainer.parentElement);
+
+        console.log('[YC Reviews] Avis Google chargés avec défilement automatique');
     }
 
     console.log('YC Coaching - Site initialized successfully');

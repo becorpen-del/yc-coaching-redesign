@@ -795,8 +795,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const googleReviewsContainer = document.getElementById('googleReviewsList');
 
     if (googleReviewsContainer) {
-        // Données des avis Google (47 avis au total, 10 affichés)
-        const googleReviewsData = {
+        // Données de fallback (si l'API ne répond pas)
+        const fallbackReviewsData = {
             rating: 5.0,
             totalReviews: 47,
             reviews: [
@@ -863,6 +863,26 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         };
 
+        // Charger les avis depuis l'API Vercel, fallback sur les données en dur
+        let googleReviewsData = fallbackReviewsData;
+
+        async function loadReviews() {
+            try {
+                const response = await fetch('/api/reviews');
+                const result = await response.json();
+                if (result.success && result.data) {
+                    googleReviewsData = {
+                        rating: result.data.rating,
+                        totalReviews: result.data.totalReviews,
+                        reviews: result.data.reviews
+                    };
+                }
+            } catch (e) {
+                // Fallback silencieux sur les données en dur
+            }
+            renderReviews();
+        }
+
         // Fonction pour générer les étoiles
         function getStars(rating) {
             const fullStars = Math.floor(rating);
@@ -904,40 +924,46 @@ document.addEventListener('DOMContentLoaded', function() {
             return div.innerHTML;
         }
 
-        // Créer les cartes d'avis
-        const reviewsHTML = googleReviewsData.reviews.map((review, index) => {
-            const isLong = review.text && review.text.length > 200;
-            return `
-                <article class="google-review-card">
-                    <div class="google-review-header">
-                        <div>
-                            <h3 class="google-review-author">${escapeHtmlReview(review.author_name)}</h3>
-                            <span class="google-review-date">${formatReviewDate(review.time)}</span>
+        function renderReviews() {
+            // Créer les cartes d'avis
+            const reviewsHTML = googleReviewsData.reviews.map((review) => {
+                const isLong = review.text && review.text.length > 200;
+                return `
+                    <article class="google-review-card">
+                        <div class="google-review-header">
+                            <div>
+                                <h3 class="google-review-author">${escapeHtmlReview(review.author_name)}</h3>
+                                <span class="google-review-date">${formatReviewDate(review.time)}</span>
+                            </div>
+                            <div class="google-review-stars">${getStars(review.rating)}</div>
                         </div>
-                        <div class="google-review-stars">${getStars(review.rating)}</div>
-                    </div>
-                    <p class="google-review-text ${isLong ? 'truncated' : ''}">${escapeHtmlReview(review.text)}</p>
-                    ${isLong ? '<span class="google-review-read-more">Lire la suite</span>' : ''}
-                </article>
-            `;
-        }).join('');
+                        <p class="google-review-text ${isLong ? 'truncated' : ''}">${escapeHtmlReview(review.text)}</p>
+                        ${isLong ? '<span class="google-review-read-more">Lire la suite</span>' : ''}
+                    </article>
+                `;
+            }).join('');
 
-        // Dupliquer les avis pour un défilement infini
-        googleReviewsContainer.innerHTML = reviewsHTML + reviewsHTML;
+            // Dupliquer les avis pour un défilement infini
+            googleReviewsContainer.innerHTML = reviewsHTML + reviewsHTML;
 
-        // Gérer le "Lire la suite"
-        googleReviewsContainer.querySelectorAll('.google-review-read-more').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const textEl = btn.previousElementSibling;
-                if (textEl.classList.contains('truncated')) {
-                    textEl.classList.remove('truncated');
-                    btn.textContent = 'Voir moins';
-                } else {
-                    textEl.classList.add('truncated');
-                    btn.textContent = 'Lire la suite';
-                }
+            // Gérer le "Lire la suite"
+            googleReviewsContainer.querySelectorAll('.google-review-read-more').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const textEl = btn.previousElementSibling;
+                    if (textEl.classList.contains('truncated')) {
+                        textEl.classList.remove('truncated');
+                        btn.textContent = 'Voir moins';
+                    } else {
+                        textEl.classList.add('truncated');
+                        btn.textContent = 'Lire la suite';
+                    }
+                });
             });
-        });
+        }
+
+        // Afficher d'abord les données en dur, puis tenter l'API
+        renderReviews();
+        loadReviews();
 
         // Auto-scroll pour les avis Google
         let reviewsAutoScrollID = null;

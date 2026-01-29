@@ -2088,17 +2088,18 @@
     color: var(--color-primary-light);
     line-height: 1.6;
     margin-top: 2rem;
-    padding: 1.5rem 2rem;
+    padding: 2.5rem 2rem 1.5rem 2rem;
     background: linear-gradient(135deg, rgba(138, 35, 60, 0.15) 0%, rgba(138, 35, 60, 0.05) 100%);
     border-left: 4px solid var(--color-primary);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     position: relative;
+    overflow: visible;
 }
 
 .about-story-quote::before {
     content: '"';
     position: absolute;
-    top: -10px;
+    top: 5px;
     left: 15px;
     font-size: 4rem;
     color: var(--color-primary);
